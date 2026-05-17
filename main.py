@@ -1,0 +1,11 @@
+import spritePro as s
+
+class GameScreen(s.Scene):
+    def __init__(self):
+        super().__init__()
+        self.bg = s.Sprite('фон Flappy Bird.jpg', pos=s.WH_C, size=s.WH, scene=self)
+        self.player = s.Sprite('птичкак Flappy Bird.jfif', pos=(100, 300), size=(50, 50), scene=self)
+        self.player_body = s.add_physics(self.player, s.PhysicsConfig(bounce=0.8))
+        s.physics.set_gravity(980)
+        s.physics.set_bounds(s.pygame.Rect(0,0, 400, 600))
+s.run(scene=GameScreen, size=(400, 600), title='фон Flappy Bird.jpg')

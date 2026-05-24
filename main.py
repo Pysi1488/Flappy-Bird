@@ -8,4 +8,8 @@ class GameScreen(s.Scene):
         self.player_body = s.add_physics(self.player, s.PhysicsConfig(bounce=0.8))
         s.physics.set_gravity(980)
         s.physics.set_bounds(s.pygame.Rect(0,0, 400, 600))
+    def update(self, dt):
+        if s.input.was_pressed(s.pygame.K_SPACE) or s.input.was_mouse_pressed(1):
+            self.player_body.velocity.y = -400
+            
 s.run(scene=GameScreen, size=(400, 600), title='фон Flappy Bird.jpg')
